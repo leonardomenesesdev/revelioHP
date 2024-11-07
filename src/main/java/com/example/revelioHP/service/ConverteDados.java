@@ -13,10 +13,10 @@ public class ConverteDados implements ConverteDadosInterface {
 
     @Override
     public <T> List<T> obterLista(String json, Class<T> classe) {
-        CollectionType listaPersonagens = mapper.getTypeFactory()
+        CollectionType lista = mapper.getTypeFactory()
                 .constructCollectionType(List.class, classe);
         try{
-            return mapper.readValue(json, listaPersonagens);
+            return mapper.readValue(json, lista);
         }catch (JsonProcessingException e){
             throw new RuntimeException(e);
         }
